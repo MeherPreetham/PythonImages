@@ -1,0 +1,64 @@
+#Display in a single figure (using plt.subplot) the original image, and the separate red, green and blue components (show these in red, green and blue respectively).
+
+#Do this in two ways:
+
+    #For each colour component, create an array of zeros the same shape as the original image (using the function np.zeros), and then copy the corresponding colour channel across using slicing. In this way, you create colour images in which two of the colour channels are all zero.
+
+    #Use slicing to extract each colour channel in turn, and then use the corresponding colour map ('Reds', 'Greens', and 'Blues') to display the required image.
+
+
+dimensions = im.shape #find the dimensions of the image
+print(dimensions)
+#original image
+original = im
+
+plt.figure(figsize=(24,12))
+
+plt.subplot(2,4,1)
+plt.imshow(original)
+plt.title("Original")
+
+#red only
+red_image = np.zeros_like(im)
+red_image[:, :, 0]= im[:, :, 0] #mimicking the red channel from the original image onto the 0 array of the image.
+plt.subplot(2,4,2)
+plt.imshow(red_image)
+plt.title("Red_image")
+
+#green only
+gred_image = np.zeros_like(im)
+green_image[:, :, 1]= im[:, :, 1] #mimicking the green channel from the original image onto the 0 array of the image.
+plt.subplot(2,4,3)
+plt.imshow(green_image)
+plt.title("Green_image")
+
+#blue only
+blue_image = np.zeros_like(im)
+blue_image[:, :, 2]= im[:, :, 2] #mimicking the blue channel from the original image onto the 0 array of the image.
+plt.subplot(2,4,4)
+plt.imshow(blue_image)
+plt.title("Blue_image")
+
+red_channel = im[:, :, 0]
+green_channel = im[:, :, 1]
+blue_channel = im[:, :, 2]
+
+
+plt.subplot(2,4,5)
+plt.imshow(red_channel, cmap = 'Reds') #displaying the red channel alone by visualizing the intensity of that specific color in isolation.
+plt.title("Red_channel")
+
+plt.subplot(2,4,6)
+plt.imshow(green_channel, cmap = 'Greens') #displaying the green channel alone by visualizing the intensity of that specific color in isolation.
+plt.title("Green_channel")
+
+plt.subplot(2,4,7)
+plt.imshow(blue_channel, cmap = 'Blues') #displaying the blue channel alone by visualizing the intensity of that specific color in isolation.
+plt.title("Blue_channel")
+
+zero_im = np.zeros_like(im) #just printing the zeroed array of the image.
+plt.subplot(2,4,8) 
+plt.imshow(zero_im)
+plt.title("Zero_im")
+
+plt.tight_layout()
