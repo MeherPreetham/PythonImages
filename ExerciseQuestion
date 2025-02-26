@@ -1,10 +1,7 @@
 #Display in a single figure (using plt.subplot) the original image, and the separate red, green and blue components (show these in red, green and blue respectively).
-
 #Do this in two ways:
-
-    #For each colour component, create an array of zeros the same shape as the original image (using the function np.zeros), and then copy the corresponding colour channel across using slicing. In this way, you create colour images in which two of the colour channels are all zero.
-
-    #Use slicing to extract each colour channel in turn, and then use the corresponding colour map ('Reds', 'Greens', and 'Blues') to display the required image.
+#For each colour component, create an array of zeros the same shape as the original image (using the function np.zeros), and then copy the corresponding colour channel across using slicing. In this way, you create colour images in which two of the colour channels are all zero.
+#Use slicing to extract each colour channel, and then use the corresponding colour map ('Reds', 'Greens', and 'Blues') to display the required image.
 
 
 dimensions = im.shape #find the dimensions of the image
